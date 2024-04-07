@@ -21,9 +21,10 @@ module PE #(parameter BW = 8) (
     end
 
     always @(posedge i_clock, posedge i_reset) begin
-        if (i_reset == 1'b0) begin
+        if (i_reset == 1'b1) begin
             acc <= 0;
             result <= 0;
+	    add <= 0;
         end else begin
             r_weight <= i_weight;
             r_activation <= i_activation;

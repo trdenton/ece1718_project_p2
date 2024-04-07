@@ -5,4 +5,3 @@ GTKWAVE=gtkwave
 run:
 	iverilog -g2012 *sv -o simv
 	./simv
-	gtkwave out.vcd

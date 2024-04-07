@@ -21,10 +21,10 @@ module tb();
 
     initial begin
 	$dumpfile("out.vcd");
-	$dumpvars(0, act8, weight8, clk, reset, result);
+	$dumpvars(0, dut);
         $monitor("time = %d, act=%d, weight=%d, result=%d",$time, act8, weight8, result);
-        act8=8'd1;
-        weight8=8'd1;
+        act8=8'd2;
+        weight8=8'd3;
         #10
         $finish;
     end
