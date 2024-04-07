@@ -4,9 +4,9 @@ module tb();
     reg reset;
     reg [7:0] act8;
     reg [7:0] weight8;
-    reg [15:0] result;
+    wire [15:0] result;
 
-    PE #(.BW(8)) dut(.i_clock(clk), .i_reset(reset), .i_activation(act8), .i_weight(weight8), .o_output(result));
+    pe #(.BW(8)) dut(.i_clock(clk), .i_reset(reset), .i_activation(act8), .i_weight(weight8), .o_output(result));
 
     initial begin
         clk = 1'b0;
