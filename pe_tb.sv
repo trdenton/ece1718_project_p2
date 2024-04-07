@@ -22,10 +22,25 @@ module tb();
     initial begin
 	$dumpfile("out.vcd");
 	$dumpvars(0, dut);
-        $monitor("time = %d, act=%d, weight=%d, result=%d",$time, act8, weight8, result);
-        act8=8'd2;
-        weight8=8'd3;
-        #10
+
+	// should see output 0,1,2,3... 
+        act8=8'd1;
+        weight8=8'd1;
+        #12
+
+	// reset.  should see output 0,128
+	reset = 1'b1;
+	act8 = 8'd128;
+	weight8 = 8'd1;
+	#2
+	reset = 1'b0;
+	#2		// 1x128
+	weight8=8'd2;
+	#2		// + 2x128
+	weight8=8'd3;
+	#2		// + 3x128
+	weight8=8'd0;
+	#6		// we should get 6x128 = 768
         $finish;
     end
 

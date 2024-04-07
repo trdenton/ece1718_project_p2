@@ -25,6 +25,9 @@ module PE #(parameter BW = 8) (
             acc <= 0;
             result <= 0;
 	    add <= 0;
+	    mult <= 0;
+	    r_weight <= 0;
+	    r_activation <= 0;
         end else begin
             r_weight <= i_weight;
             r_activation <= i_activation;
