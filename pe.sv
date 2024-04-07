@@ -18,7 +18,7 @@ module pe #(parameter BW = 8) (
        add = mult + acc;
     end
 
-    always @(posedge i_clock, posedge i_reset) begin
+    always @(posedge i_clock or posedge i_reset) begin
         if (i_reset == 1'b1) begin
             acc <= 0;
 	    add <= 0;
