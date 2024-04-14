@@ -22,6 +22,8 @@ module tb();
     initial begin
 	$dumpfile("out.vcd");
 	$dumpvars(0, dut);
+	$display("reset\tact8\tweight8\tresult\n");
+	$monitor("%d\t%d\t%d\t%d", reset, act8, weight8, result);
 
 	// should see output 0,1,2,3... 
         act8=8'd1;

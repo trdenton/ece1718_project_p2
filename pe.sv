@@ -1,3 +1,4 @@
+`timescale 1ns / 10ps
 module pe #(parameter BW = 8) (
     input logic i_clock,
     input logic i_reset,
@@ -21,10 +22,9 @@ module pe #(parameter BW = 8) (
     always @(posedge i_clock or posedge i_reset) begin
         if (i_reset == 1'b1) begin
             acc <= 0;
-	    add <= 0;
-	    mult <= 0;
-	    r_weight <= 0;
-	    r_activation <= 0;
+            r_weight <= 0;
+            r_activation <= 0;
+            o_output <= 0;
         end else begin
             r_weight <= i_weight;
             r_activation <= i_activation;

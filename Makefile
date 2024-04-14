@@ -3,5 +3,5 @@ GTKWAVE=gtkwave
 
 .PHONY: run
 run:
-	iverilog -g2012 *sv -o simv
+	iverilog -o simv -g2012 *sv
 	./simv
